@@ -1,6 +1,6 @@
 import { RECEIVE_RESTAURANTS } from "../actions/restaurants";
 
-export default function restaurants(state, action) {
+const restaurants = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
       return {
@@ -10,4 +10,6 @@ export default function restaurants(state, action) {
     default:
       return state;
   }
-}
+};
+
+export default restaurants;

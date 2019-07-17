@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default class Search extends React.Component {
+class Search extends React.Component {
   state = {
     text: ""
   };
@@ -9,10 +10,7 @@ export default class Search extends React.Component {
     const text = event.target.value;
     this.setState({ text });
 
-    // Do search
-    let teste = ["a", "b", "abc", "alface", "qqcoisa", "algumacoisa"];
-    let novo = teste.filter(item => item.includes(text));
-    console.log(novo);
+    // Do filter
   };
 
   render() {
@@ -30,3 +28,5 @@ export default class Search extends React.Component {
     );
   }
 }
+
+export default connect()(Search);

@@ -1,0 +1,3 @@
+const RECEIVE_MENUS = "RECEIVE_MENUS";
+
+export { RECEIVE_MENUS };
