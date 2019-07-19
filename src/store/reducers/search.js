@@ -1,15 +1,15 @@
 import { ADD_SEARCH } from "../actions/searchs";
 
-const addSearch = (state = {}, action) => {
+const search = (state = {}, action) => {
   switch (action.type) {
     case ADD_SEARCH:
       return {
         ...state,
-        ...action.search
+        search: action.search
       };
     default:
       return state;
   }
 };
 
-export default addSearch;
+export default search;

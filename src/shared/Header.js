@@ -1,4 +1,5 @@
 import { jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 
 /** @jsx jsx */
 const style = {
@@ -16,5 +17,9 @@ const Header = ({ title = "Lista Rango" }) => (
     <h1 css={style.title}>{title}</h1>
   </header>
 );
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default Header;

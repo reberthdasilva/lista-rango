@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import { Header, Footer, Search } from "../shared";
 import ListRestaurants from "../components/ListRestaurants";
@@ -21,4 +20,4 @@ class Page extends React.PureComponent {
   }
 }
 
-export default connect()(Page);
+export default Page;

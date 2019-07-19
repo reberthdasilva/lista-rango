@@ -1,7 +1,6 @@
-export const filterRestaurant = (restaurants = [], searchValue = false) => {
-  if (!searchValue) return restaurants;
-
-  return restaurants.filter(restaurant =>
-    restaurant.name.includes(searchValue)
-  );
-};
+export const filterRestaurant = (restaurants = [], searchValue = false) =>
+  !searchValue
+    ? restaurants
+    : restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
