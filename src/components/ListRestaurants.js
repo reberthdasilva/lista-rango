@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { jsx } from "@emotion/core";
 import { connect } from "react-redux";
-import { receiveRestaurants } from "../store/actions/restaurants";
-import { getRestaurants } from "../utils/API/restaurants";
-import { filterRestaurant } from "../utils/helpers/restaurants";
+import { getAll } from "../store/actions/restaurants";
+import { filterRestaurant, jsonToArray } from "../utils/helpers/restaurants";
 import Restaurant from "./Restaurant";
 
 /** @jsx jsx */
@@ -21,9 +20,7 @@ const style = {
 
 class ListRestaurants extends React.Component {
   componentDidMount() {
-    getRestaurants().then(response =>
-      this.props.dispatch(receiveRestaurants(response))
-    );
+    this.props.getAll();
   }
 
   render() {
@@ -44,17 +41,20 @@ class ListRestaurants extends React.Component {
 }
 
 ListRestaurants.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   restaurants: PropTypes.array.isRequired,
   search: PropTypes.string
 };
 
-const mapStateToProps = ({ restaurants, search }) => {
-  let keys = Object.keys(restaurants);
-  return {
-    restaurants: keys.map(key => restaurants[key]),
-    search: Object.values(search)[0]
-  };
-};
+const mapStateToProps = ({ restaurants, search }) => ({
+  restaurants: jsonToArray(restaurants),
+  search: Object.values(search)[0]
+});
 
-export default connect(mapStateToProps)(ListRestaurants);
+const mapDispatchToProps = dispatch => ({
+  getAll: () => dispatch(getAll())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListRestaurants);

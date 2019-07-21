@@ -3,20 +3,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink, withRouter } from "react-router-dom";
 import { jsx } from "@emotion/core";
+import Label from "./Label";
 
 /** @jsx jsx */
 const style = {
   card: {
-    alignItems: "stretch",
     backgroundColor: "#ffffff",
-    borderRadius: "10px",
-    display: "flex"
+    borderRadius: "4px",
+    boxShadow: "0px 2px 4px 0px #000000",
+    display: "flex",
+    minWidth: "30%",
+    position: "relative"
   },
   image: {
-    width: "100px"
+    maxHeight: "100px",
+    maxWidth: "100px"
   },
   info: {
-    margin: "30px 25px"
+    margin: "30px 25px",
+    width: "100%"
   },
   name: {
     display: "block",
@@ -35,25 +40,28 @@ const style = {
 };
 
 const Restaurant = ({ restaurant }) => {
-  let { address, image, name } = restaurant;
+  let { address, image, name, hours = [] } = restaurant;
   return (
-    <li className="list__card" css={style.card}>
-      <img
-        src={image}
-        alt={name}
-        title={name}
-        className="list__card-image"
-        css={style.image}
-      />
-      <div className="list__card-info" css={style.info}>
-        <span className="list__card-name" css={style.name}>
-          {name}
-        </span>
-        <span className="list__card-address" css={style.address}>
-          {address}
-        </span>
-      </div>
-    </li>
+    <NavLink to={`/restaurant/${restaurant.id}`}>
+      <li className="list__card" css={style.card}>
+        <img
+          src={image}
+          alt={name}
+          title={name}
+          className="list__card-image"
+          css={style.image}
+        />
+        <div className="list__card-info" css={style.info}>
+          <span className="list__card-name" css={style.name}>
+            {name}
+          </span>
+          <span className="list__card-address" css={style.address}>
+            {address}
+          </span>
+          <Label hours={hours} />
+        </div>
+      </li>
+    </NavLink>
   );
 };
 

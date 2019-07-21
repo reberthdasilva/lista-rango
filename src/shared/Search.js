@@ -16,7 +16,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { placeholder = "Digite o texto" } = this.props;
+    const { placeholder = "Buscar" } = this.props;
     const { text } = this.state;
 
     return (

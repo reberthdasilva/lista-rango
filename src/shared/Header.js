@@ -1,4 +1,5 @@
 import { jsx } from "@emotion/core";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 /** @jsx jsx */
@@ -14,7 +15,9 @@ const style = {
 
 const Header = ({ title = "Lista Rango" }) => (
   <header css={style.header} className="header">
-    <h1 css={style.title}>{title}</h1>
+    <NavLink to="/">
+      <h1 css={style.title}>{title}</h1>
+    </NavLink>
   </header>
 );
 
