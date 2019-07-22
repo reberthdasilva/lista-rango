@@ -14,12 +14,16 @@ class RestaurantPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ restaurants }, { match }) => ({
-  id: match.params.id,
-  restaurant: jsonToArray(restaurants).filter(
+const mapStateToProps = ({ restaurants }, { match }) => {
+  let restaurant = jsonToArray(restaurants).filter(
     restaurant => restaurant.id === parseInt(match.params.id)
-  )
-});
+  );
+
+  return {
+    id: match.params.id,
+    restaurant
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   getMenu: id => dispatch(getMenu(id))

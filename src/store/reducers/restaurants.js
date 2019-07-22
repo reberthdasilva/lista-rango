@@ -2,7 +2,7 @@ import { RECEIVE_RESTAURANTS } from "../actions/restaurants";
 
 const restaurants = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_RESTAURANTS:
+    case "RECEIVE_RESTAURANTS":
       return {
         ...state,
         ...action.restaurants

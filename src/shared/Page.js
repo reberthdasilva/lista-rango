@@ -11,7 +11,7 @@ class Page extends React.PureComponent {
     return (
       <Router>
         <div className="container">
-          <Header title="Lista Rango" />
+          <Header title="X" />
 
           <main className="main">
             <Switch>

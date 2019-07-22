@@ -9,3 +9,9 @@ export const receiveMenus = menus => ({
 
 export const getMenu = id => dispatch =>
   getMenus(id).then(menu => dispatch(receiveMenus(menu)));
+
+// export function* incrementAsync(id) {
+//   const json = yield getMenus(id).then(menu => dispatch(receiveMenus(menu)));
+
+//   yield put({ type: "NEWS_RECEIVED", json: json.articles });
+// }

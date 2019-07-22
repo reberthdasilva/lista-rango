@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { jsx } from "@emotion/core";
 import { connect } from "react-redux";
-import { getAll } from "../store/actions/restaurants";
+import { receiveRestaurants } from "../store/actions/restaurants";
 import { filterRestaurant, jsonToArray } from "../utils/helpers/restaurants";
 import Restaurant from "./Restaurant";
 
@@ -51,7 +51,7 @@ const mapStateToProps = ({ restaurants, search }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAll: () => dispatch(getAll())
+  getAll: () => dispatch(receiveRestaurants())
 });
 
 export default connect(
